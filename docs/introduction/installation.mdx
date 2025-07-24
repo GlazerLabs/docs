@@ -1,0 +1,186 @@
+---
+title: 'Installation'
+description: 'How to set up and run the Thryl API'
+---
+
+This guide will help you set up the Thryl API on your local development environment.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+- **PostgreSQL** (v12 or higher)
+- **Redis** (v6 or higher)
+
+## Quick Start
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd thrylBackend
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+  #DB Setup
+  DB_HOST=pg-2c599df7-glazertech1-225a.h.aivencloud.com
+  DB_NAME=defaultdb
+  DB_USERNAME=avnadmin
+  DB_PORT=19346
+  
+  #server port Number
+  PORT=3000
+  LOKI_HOST=http://127.0.0.1:3100
+  NODE_ENV=development
+  LOG_LEVEL=info
+  
+  # enviourment mode
+  # NODE_ENVIOURMENT = production
+  NODE_ENVIOURMENT = staging
+  
+  #REDIS Setup
+  CACHE_EXPIRATION_TIMES=60
+  ENABLE_CACHE=true
+  
+  # aws redis
+  REDIS_HOST=redis-13156.c305.ap-south-1-1.ec2.redns.redis-cloud.com
+  REDIS_PORT=13156
+  REDIS_USERNAME=default
+  REDIS_PASSWORD=uGKt0JdG46opSpiYfVMQqEnQjfO3KyP8
+  
+  # Encryption Key
+  ENCRYPTION_KEY=asdasdheqlkhfbbczkjhclajdadjqwieuowj1328102389102380
+  
+  #gmail setup
+  EMAIL_SERVICE=gmail
+  EMAIL_USER=gargvanshiprashant@gmail.com  
+  EMAIL_PASS=ctni hwgt faid kdas
+  
+  #aws Setup
+  AWS_ACCESS_KEY=
+  AWS_SECRET_KEY=
+  AWS_S3_BUCKET=
+  AWS_DEFAULT_REGION=
+  AWS_MM_SMS_ENTITY_ID=
+  AWS_MM_SMS_TEMPLATE_ID=
+  AWS_SNS_SMS_SENDER_ID=
+  AWS_SES_FROM_EMAIL=noreply@thryl.io
+  AWS_SQS_NOTIFICATION_QUEUE_URL_HIGH=
+  AWS_SQS_NOTIFICATION_QUEUE_URL_MEDIUM=
+  AWS_SQS_NOTIFICATION_QUEUE_URL_LOW=
+
+  #Azure Email Setup
+  AZURE_COMMUNICATION_SERVICES_CONNECTION_STRING=
+  AZURE_EMAIL_SENDER=DoNotReply@thryl.io
+  
+  #run all schema
+  RUN_CREATE_SCHEMA_DB=false
+  
+  # SHA256 Fingerprints for Android App
+  SHA256_DEV_FINGERPRINTS=FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+  SHA256_PROD_FINGERPRINTS=7E:CA:BE:47:A0:E1:9F:F0:E6:36:46:EA:9B:8B:6D:F7:65:CF:B3:00:28:19:19:92:D8:29:04:7A:CB:72:78:D1
+  
+  # msg91 setup
+  MSG91_AUTH_KEY = 
+  MSG91_TEMPLATE_ID = 
+  MSG91_SENDER_ID = 
+  # msg91 setup
+  MSG91_TEMPLATE_ID_AWARDS=
+  AWS_AWARD_TEMPLATE_ID=
+  
+  
+  #Coupomated all coupen
+  ALL_COUPON_API_URL=
+  
+  #Coupomated MERCHANT API URL
+  MERCHANT_API_URL=
+
+
+```
+
+### 4. Database Setup
+
+Create the PostgreSQL database:
+
+```sql
+CREATE DATABASE thryl_db;
+```
+
+The application will automatically create the required tables on startup.
+
+### 5. Start the Application
+
+#### Development Mode
+```bash
+npm run dev
+```
+
+#### Production Mode
+```bash
+npm start
+```
+
+The API will be available at `http://localhost:3000`
+
+## Docker Setup
+
+If you prefer using Docker:
+
+### 1. Build the Image
+
+```bash
+docker build -t thryl-backend .
+```
+
+### 2. Run with Docker Compose
+
+```bash
+docker-compose up -d
+```
+
+This will start the API along with PostgreSQL and Redis services.
+
+## Verification
+
+To verify that the installation was successful:
+
+1. Check if the server is running: `http://localhost:3000/health`
+2. You should see a JSON response indicating the service is healthy
+
+## Next Steps
+
+- Read the [API Reference](/docs/api/authentication) to understand available endpoints
+- Set up your authentication credentials
+- Start building your application
+
+## Troubleshooting
+
+### Common Issues
+
+**Port Already in Use**
+If port 3000 is already in use, you can change it by setting the `PORT` environment variable:
+
+```bash
+PORT=3001 npm start
+```
+
+**Database Connection Issues**
+- Ensure PostgreSQL is running
+- Verify your database credentials in the `.env` file
+- Check if the database exists
+
+**Redis Connection Issues**
+- Ensure Redis is running
+- Verify Redis connection settings in the `.env` file 

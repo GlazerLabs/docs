@@ -1,0 +1,83 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Thryl API Documentation",
+    "colors": {
+      "primary": "#16A34A",
+      "light": "#07C983",
+      "dark": "#15803D"
+    },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "docs/introduction/index",
+              "docs/introduction/installation"
+            ]
+          },
+          {
+            "group": "Services",
+            "pages": [
+              "docs/services"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "docs/api/utility",
+              "docs/api/authentication",
+              "docs/api/profile",
+              "docs/api/follow",
+              "docs/api/mute",
+              "docs/api/block",
+              "docs/api/report",
+              "docs/api/notification",
+              "docs/api/admin",
+              "docs/api/organizer",
+              "docs/api/box",
+              "docs/api/liveStream",
+              "docs/api/liveCommentary",
+              "docs/api/faq",
+              "docs/api/support",
+              "docs/api/game",
+              "docs/api/gameJoin",
+              "docs/api/gameMap",
+              "docs/api/team",
+              "docs/api/gem",
+              "docs/api/gemLog"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:developer@glazer.games"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com",
+      "github": "https://github.com/GlazerLabs/thrylBackend/tree/staging",
+      "linkedin": "https://www.linkedin.com/company/thrylapp"
+    }
+  }
+}
