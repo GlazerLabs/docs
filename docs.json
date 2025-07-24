@@ -1,5 +1,6 @@
 {
-"theme": "mint",
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
   "name": "Thryl API Documentation",
     "colors": {
       "primary": "#16A34A",
@@ -66,12 +67,7 @@
         "href": "mailto:developer@glazer.games"
       }
     ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
+  
   "footer": {
     "socials": {
       "x": "https://x.com",
